@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import PlantCard from "./PlantCard";
 
-function PlantList({ search }) {
-  const [plants, setPlants] = useState([]);
+function PlantList({ search, plants, setPlants }) {
 
   useEffect(() => {
     fetch("http://localhost:6001/plants")

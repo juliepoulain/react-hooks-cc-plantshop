@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 
-function NewPlantForm({createPlant}) {
+function NewPlantForm({addPlant}) {
   const [plantData, setPlantData] = useState({
     name: "",
     image: "",
@@ -28,10 +28,10 @@ function NewPlantForm({createPlant}) {
       })
     })
     .then((r)=>r.json())
-    .then((plant)=>{
-      console.log(plant)
-      createPlant(plant)
-      console.log("plant added to db")
+    .then((newPlant)=>{
+      console.log(newPlant)
+      addPlant(newPlant)
+      console.log("new plant added to db")
     })
   }
 

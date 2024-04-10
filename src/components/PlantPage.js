@@ -8,15 +8,15 @@ function PlantPage() {
 
   const [plants, setPlants] = useState([])
 
-  const createPlant = (newPlant) => {
+  const addPlant = (newPlant) => {
     setPlants([...plants, newPlant])
   }
 
   return (
     <main>
-      <NewPlantForm createPlant={createPlant}/>
+      <NewPlantForm addPlant={addPlant}/>
       <Search search={search} setSearch={setSearch}/>
-      <PlantList search={search}/>
+      <PlantList search={search} plants={plants} setPlants={setPlants}/>
     </main>
   );
 }
