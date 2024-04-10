@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 
-function NewPlantForm() {
+function NewPlantForm({createPlant}) {
   const [plantData, setPlantData] = useState({
     name: "",
     image: "",
@@ -19,13 +19,19 @@ function NewPlantForm() {
     fetch("http://localhost:6001/plants", {
       method: "POST",
       headers: {
-        "Content-Type": "application/json",
+        "Content-Type": "Application/JSON",
       },
       body: JSON.stringify({
         name: plantData.name,
         image: plantData.image,
         price: plantData.price,
       })
+    })
+    .then((r)=>r.json())
+    .then((plant)=>{
+      console.log(plant)
+      createPlant(plant)
+      console.log("plant added to db")
     })
   }
 
